@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    username: test
+    password: pass
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+# 当引入mybatis-plus插件时，继续使用mybatis配置 会遇到错误 org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)
+# 应该切换至 mybatis-plus
+#mybatis:
+#  type-aliases-package: com.zja.entitys
+#  mapper-locations: classpath:mappers/*.xml
+#  #开启驼峰命名
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+mybatis-plus:
+  type-aliases-package: com.zja.entitys
+  mapper-locations: classpath*:/mappers/*.xml
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      zja: debug # 打印sql
+
